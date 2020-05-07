@@ -1,8 +1,10 @@
 package com.jpaproject.demo.config;
 
+import com.jpaproject.demo.model.Category;
 import com.jpaproject.demo.model.Order;
 import com.jpaproject.demo.model.User;
 import com.jpaproject.demo.model.enums.OrderStatus;
+import com.jpaproject.demo.repositories.CategoryRepository;
 import com.jpaproject.demo.repositories.OrderRepository;
 import com.jpaproject.demo.repositories.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,6 +26,8 @@ public class Test implements CommandLineRunner {
     @Autowired
     private OrderRepository orderRepository;
 
+    @Autowired
+    private CategoryRepository categoryRepository;
 
     @Override
     public void run(String... args) throws Exception {
@@ -33,8 +37,12 @@ public class Test implements CommandLineRunner {
         Order o1 = new Order(null, new java.sql.Date(new java.util.Date().getTime()), OrderStatus.PAID, u1);
         Order o2 = new Order(null, new java.sql.Date(new java.util.Date().getTime()), OrderStatus.CANCELED, u2);
 
+        Category cat1 = new Category(null, "Music");
+        Category cat2 = new Category(null, "Sports");
 
-        userRepository.saveAll(Arrays.asList(u1, u2));
-        orderRepository.saveAll(Arrays.asList(o1, o2));
+
+        //userRepository.saveAll(Arrays.asList(u1, u2));
+        //orderRepository.saveAll(Arrays.asList(o1, o2));
+        categoryRepository.saveAll(Arrays.asList(cat1, cat2));
     }
 }
