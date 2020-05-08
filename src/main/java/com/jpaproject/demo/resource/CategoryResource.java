@@ -5,6 +5,7 @@ import com.jpaproject.demo.services.CategoryService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -24,7 +25,7 @@ public class CategoryResource {
     }
 
     @GetMapping(value = "/{id}")
-    public ResponseEntity<Category> findById(Integer id) {
+    public ResponseEntity<Category> findById(@PathVariable Integer id) {
         Category category = categoryService.findById(id);
         return ResponseEntity.ok().body(category);
     }
