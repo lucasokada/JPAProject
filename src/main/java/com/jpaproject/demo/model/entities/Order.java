@@ -1,11 +1,14 @@
 package com.jpaproject.demo.model.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.jpaproject.demo.model.entities.User;
 import com.jpaproject.demo.model.enums.OrderStatus;
 
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Date;
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity
 @Table(name = "tb_order")
@@ -21,6 +24,9 @@ public class Order implements Serializable {
     @ManyToOne
     @JoinColumn(name = "client_id")
     private User client;
+
+    @OneToMany(mappedBy = "id.order")
+    private Set<OrderItem> items = new HashSet<>();
 
     public Order(Integer id, Date moment, OrderStatus orderStatus, User client) {
         this.id = id;
@@ -51,5 +57,9 @@ public class Order implements Serializable {
 
     public User getClient() {
         return client;
+    }
+
+    public Set<OrderItem> getItems() {
+        return items;
     }
 }

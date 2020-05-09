@@ -6,10 +6,12 @@ import com.jpaproject.demo.model.entities.Product;
 import javax.persistence.Embeddable;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.Table;
 import java.io.Serializable;
 import java.util.Objects;
 
 @Embeddable
+@Table(name = "tb_order_item")
 public class OrderItemPK implements Serializable{
     //chave primaria composta
     //classe tem referencia para o produto e para o pedido

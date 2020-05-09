@@ -1,5 +1,6 @@
 package com.jpaproject.demo.model.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.jpaproject.demo.model.pk.OrderItemPK;
 
 import javax.persistence.EmbeddedId;
@@ -13,14 +14,15 @@ import java.util.Objects;
 public class OrderItem implements Serializable {
 
     @EmbeddedId
-    private OrderItemPK id;  //irá retornar um order e um product, por isso tera um get e set para cada um
+    private OrderItemPK id = new OrderItemPK();  //irá retornar um order e um product, por isso tera um get e set para cada um
+
     private Integer quantity;
     private Double price;
 
     public OrderItem() {
     }
 
-    public OrderItem(Order order, Product product, OrderItemPK id, Integer quantity, Double price) {
+    public OrderItem(Order order, Product product, Integer quantity, Double price) {
         id.setOrder(order);
         id.setProduct(product);
         this.id = id;
@@ -28,6 +30,7 @@ public class OrderItem implements Serializable {
         this.price = price;
     }
 
+    @JsonIgnore //pois é quem chama o pedido associado ao pedido que chama o pedido -> loop
     public Order getOrder() {
         return id.getOrder();
     }

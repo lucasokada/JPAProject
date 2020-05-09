@@ -33,6 +33,7 @@ public class User implements Serializable{
     @Size(max = 50)
     private String password;
 
+
     public User() {
 
     }
