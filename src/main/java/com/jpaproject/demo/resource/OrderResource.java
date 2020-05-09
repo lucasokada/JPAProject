@@ -1,6 +1,6 @@
 package com.jpaproject.demo.resource;
 
-import com.jpaproject.demo.model.Order;
+import com.jpaproject.demo.model.entities.Order;
 import com.jpaproject.demo.services.OrderService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;

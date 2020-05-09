@@ -1,6 +1,6 @@
 package com.jpaproject.demo.services;
 
-import com.jpaproject.demo.model.Product;
+import com.jpaproject.demo.model.entities.Product;
 import com.jpaproject.demo.repositories.ProductRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

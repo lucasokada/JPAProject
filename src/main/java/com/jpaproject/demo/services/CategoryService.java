@@ -1,9 +1,8 @@
 package com.jpaproject.demo.services;
 
-import com.jpaproject.demo.model.Category;
+import com.jpaproject.demo.model.entities.Category;
 import com.jpaproject.demo.repositories.CategoryRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.cglib.transform.impl.InterceptFieldEnabled;
 import org.springframework.stereotype.Service;
 
 import java.util.List;

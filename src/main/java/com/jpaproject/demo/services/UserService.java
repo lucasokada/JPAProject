@@ -1,6 +1,6 @@
 package com.jpaproject.demo.services;
 
-import com.jpaproject.demo.model.User;
+import com.jpaproject.demo.model.entities.User;
 import com.jpaproject.demo.repositories.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

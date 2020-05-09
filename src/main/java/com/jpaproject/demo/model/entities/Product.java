@@ -1,4 +1,4 @@
-package com.jpaproject.demo.model;
+package com.jpaproject.demo.model.entities;
 
 import javax.persistence.*;
 import java.io.Serializable;
@@ -20,7 +20,10 @@ public class Product implements Serializable {
     @JoinColumn(name = "img_url")
     private String imgUrl;
 
-    @OneToMany
+    @ManyToMany
+    @JoinTable(name = "tb_product_category",
+            joinColumns = @JoinColumn(name = "product_id"),
+            inverseJoinColumns = @JoinColumn(name = "category_id"))
     private Set<Category> categories = new HashSet<>(); /*SET: um produto nao pode ter a mesma categoria mais de uma vez*/
 
     public Product(Integer id, String name, String description, Double price, String imgUrl) {

@@ -1,6 +1,6 @@
 package com.jpaproject.demo.services;
 
-import com.jpaproject.demo.model.Order;
+import com.jpaproject.demo.model.entities.Order;
 import com.jpaproject.demo.repositories.OrderRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

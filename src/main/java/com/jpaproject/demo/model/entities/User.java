@@ -1,7 +1,6 @@
-package com.jpaproject.demo.model;
+package com.jpaproject.demo.model.entities;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import org.springframework.beans.factory.annotation.Autowired;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;

@@ -1,11 +1,10 @@
-package com.jpaproject.demo.model;
+package com.jpaproject.demo.model.entities;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.jpaproject.demo.model.entities.User;
 import com.jpaproject.demo.model.enums.OrderStatus;
 
 import javax.persistence.*;
 import java.io.Serializable;
-import java.time.Instant;
 import java.util.Date;
 
 @Entity

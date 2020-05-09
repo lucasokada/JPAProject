@@ -1,4 +1,4 @@
-package com.jpaproject.demo.model;
+package com.jpaproject.demo.model.entities;
 
 import javax.persistence.*;
 import java.io.Serializable;
@@ -39,7 +39,7 @@ public class Category implements Serializable {
         this.name = name;
     }
 
-    @OneToMany
+    @ManyToMany(mappedBy = "categories")
     private Set<Product> products = new HashSet<>();
 
     @Override
