@@ -28,6 +28,10 @@ public class Order implements Serializable {
     @OneToMany(mappedBy = "id.order")
     private Set<OrderItem> items = new HashSet<>();
 
+    /*
+    @OneToOne(mappedBy = "order", cascade = CascadeType.ALL) //mapear as duas entidades para ter o mesmo id
+    private Payment payment;*/
+
     public Order(Integer id, Date moment, OrderStatus orderStatus, User client) {
         this.id = id;
         this.moment = moment;
@@ -41,6 +45,16 @@ public class Order implements Serializable {
     @JoinColumn(name = "order_status")
     public OrderStatus getOrderStatus() throws Exception {
         return OrderStatus.valueOf(orderStatus);
+    }
+
+    public Double getTotal() {
+        double sum = 0.0;
+
+        for(OrderItem x : items) {
+            sum += x.getSubTotal();
+        }
+
+        return sum;
     }
 
     public void setOrderStatus(OrderStatus orderStatus) {
@@ -62,4 +76,15 @@ public class Order implements Serializable {
     public Set<OrderItem> getItems() {
         return items;
     }
+
+    /*
+    public Payment getPayment() {
+        return payment;
+    }
+
+    public void setPayment(Payment payment) {
+        this.payment = payment;
+    }
+
+     */
 }

@@ -26,6 +26,9 @@ public class Product implements Serializable {
             inverseJoinColumns = @JoinColumn(name = "category_id"))
     private Set<Category> categories = new HashSet<>(); /*SET: um produto nao pode ter a mesma categoria mais de uma vez*/
 
+    @OneToMany(mappedBy = "id.product")
+    private Set<OrderItem> items = new HashSet<>();
+
     public Product(Integer id, String name, String description, Double price, String imgUrl) {
         Id = id;
         this.name = name;
@@ -36,6 +39,17 @@ public class Product implements Serializable {
 
     public Product() {
     }
+
+    public Set<Order> getOrders() {
+        Set<Order> set = new HashSet<>();
+        for(OrderItem x : items) {
+            set.add(x.getOrder());
+        }
+
+        return set;
+    }
+
+
 
     public Integer getId() {
         return Id;

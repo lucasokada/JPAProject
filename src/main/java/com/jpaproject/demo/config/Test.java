@@ -9,6 +9,7 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Profile;
 
 import java.util.Arrays;
+import java.util.Date;
 
 @Configuration
 @Profile("test")
@@ -58,5 +59,10 @@ public class Test implements CommandLineRunner {
         categoryRepository.saveAll(Arrays.asList(cat1, cat2, cat3));
         productRepository.saveAll(Arrays.asList(prod1, prod2, prod3));
         orderItemRepository.saveAll(Arrays.asList(orderItem1, orderItem2, orderItem3));
+
+       /* Payment pay1 = new Payment(12 , new java.sql.Date(new java.util.Date().getTime()), o1);
+        o1.setPayment(pay1);
+
+        orderRepository.save(o1);*/
     }
 }
