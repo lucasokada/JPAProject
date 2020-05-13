@@ -25,4 +25,24 @@ public class UserService {
         Optional<User> obj = userRepository.findById(id);
         return obj.get();
     }
+
+    public User insert(User obj) { //insere banco de dados
+        return userRepository.save(obj);
+    }
+
+    public void delete(Integer id) {
+        userRepository.deleteById(id);
+    }
+
+    public User update(Integer id, User obj) {
+        User entity = userRepository.getOne(id);//instancia o usuario sem operar o banco de dados
+        updateData(entity, obj);
+        return userRepository.save(entity);
+    }
+
+    private void updateData(User entity, User obj) {
+        entity.setName(obj.getName());
+        entity.setEmail(obj.getEmail());
+        entity.setPhone(obj.getPhone());
+    }
 }
